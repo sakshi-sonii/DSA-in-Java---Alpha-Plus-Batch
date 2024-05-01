@@ -63,13 +63,10 @@ public class LL{
 
     public static void main(String[] args) {
         LL l = new LL();
-        l.print();
+        
         l.addFirst(2);
-        l.print();
         l.addFirst(1);
-        l.print();
         l.addLast(3);
-        l.print();
         l.addLast(4);
         l.print();
         System.out.println(l.size);
