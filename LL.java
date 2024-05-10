@@ -114,6 +114,42 @@ public class LL{
     public int recSearch(int key){
         return helper(head,key);
     }
+
+    public void reverse(){
+        Node prev = null;
+        Node curr = head;
+        Node next;
+        while(curr!=null){
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        head = prev;
+    }
+
+    public void deletefromnthend(int n){
+        int sz = 0;
+        Node temp = head;
+        while (temp != null) {
+            sz++;
+            temp = temp.next;
+        }
+        if(n==sz){
+            head = head.next;
+            return;
+        }
+        int i = 1;
+        int f = sz-n;
+        Node prev = head;
+        while(i<f){
+            prev = prev.next;
+            i++;
+        }
+        prev.next = prev.next.next;
+        return;
+    }
+
     public static void main(String[] args) {
         LL l = new LL();
         
@@ -121,10 +157,16 @@ public class LL{
         l.addFirst(1);
         l.addLast(3);
         l.addLast(4);
+        l.print();
         l.add(4, 5);
+        l.print();
+        l.reverse();
         l.print();
         l.removeFirst();
         l.removeLast();
+        l.print();
+        l.deletefromnthend(1);
+        l.print();
         System.out.println(l.itrSearch(3));
         System.out.println(l.recSearch(3));
         System.out.println(l.size);
