@@ -38,7 +38,7 @@ public class LL{
     public void print(){
         Node temp = head;
         while(temp!=null){
-            System.out.print(temp.data + "-->");
+            System.out.print(temp.data + " --> ");
             temp=temp.next;
         }
         System.out.println("null");
@@ -61,6 +61,31 @@ public class LL{
         temp.next = newNode;
     }
 
+    public int removeFirst(){
+        if(size==0){
+            System.out.println("LL is empty");
+        }
+        int val = head.data;
+        head = head.next;
+        size--;
+        return val;
+    }
+
+    public int removeLast(){
+        if(size==0){
+            System.out.println("LL is empty");
+        }
+        Node temp = head;
+        for (int i = 0; i< size -2;i++){
+            temp = temp.next;
+        } 
+        int val = temp.next.data;
+        temp.next = null;
+        size--;
+        return val;
+    }
+
+
     public static void main(String[] args) {
         LL l = new LL();
         
@@ -68,7 +93,10 @@ public class LL{
         l.addFirst(1);
         l.addLast(3);
         l.addLast(4);
+        l.add(4, 5);
         l.print();
+        l.removeFirst();
+        l.removeLast();
         System.out.println(l.size);
     }
 }
