@@ -85,7 +85,18 @@ public class LL{
         return val;
     }
 
-
+    public int itrSearch(int key){
+        Node temp = head;
+        int i = 0;
+        while(temp!= null){
+            if(temp.data == key){
+                return i;
+            }
+            temp = temp.next;
+            i++;
+        }
+        return -1;
+    }
     public static void main(String[] args) {
         LL l = new LL();
         
@@ -97,6 +108,8 @@ public class LL{
         l.print();
         l.removeFirst();
         l.removeLast();
+        System.out.println(l.itrSearch(3));
+        
         System.out.println(l.size);
     }
 }
