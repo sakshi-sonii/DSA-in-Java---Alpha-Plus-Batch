@@ -11,7 +11,7 @@ public class LL{
     }
     
     public static Node head;
-    public static int size;
+    public int size;
 
     public void addFirst(int data){
         Node temp=head;
