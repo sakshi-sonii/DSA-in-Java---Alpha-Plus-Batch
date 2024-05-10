@@ -97,6 +97,23 @@ public class LL{
         }
         return -1;
     }
+
+    public int helper(Node head, int key){
+        if(head == null){
+            return -1;
+        }
+        if(head.data == key){
+            return 0;
+        }
+        int i = helper(head.next, key);
+        if(i==-1){
+            return -1;
+        }
+        return i+1;
+    }
+    public int recSearch(int key){
+        return helper(head,key);
+    }
     public static void main(String[] args) {
         LL l = new LL();
         
@@ -109,7 +126,7 @@ public class LL{
         l.removeFirst();
         l.removeLast();
         System.out.println(l.itrSearch(3));
-        
+        System.out.println(l.recSearch(3));
         System.out.println(l.size);
     }
 }
